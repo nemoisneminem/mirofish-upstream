@@ -9,6 +9,9 @@ authors = [
 ]
 
 dependencies = [
+    "requests>=2.34.2,<3",
+    "urllib3>=2.8.0,<3",
+    "certifi>=2026.10.19",
     # 核心框架
     "flask>=3.0.0",
     "flask-cors>=6.0.0",
@@ -53,3 +56,7 @@ dev = [
 
 [tool.hatch.build.targets.wheel]
 packages = ["app"]
+
+# Emergency CA fix only; retain the global seven-day quarantine for other packages.
+[tool.uv.exclude-newer-package]
+certifi = "2026-10-20T23:59:59Z"
